@@ -18,17 +18,11 @@ namespace commands
 			evento.dispatch();
 
 
-            var evento1 = new CommandEvent("aaa");
+            var evento1 = new CommandEvent("aaaaaa");
 			evento1.dispatch();
 
 
             commandToEventMapper.RemoveCommand(command,"aaa");
-
-            evento.dispatch();
-
-			Console.WriteLine("Hello World!");
-
-
 
 
         }
