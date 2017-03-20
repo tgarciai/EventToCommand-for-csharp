@@ -1,4 +1,6 @@
 obj/
 bin/
-.vscore/
+.vscode/
 *.csproj
+*.sln
+*.userprefs
