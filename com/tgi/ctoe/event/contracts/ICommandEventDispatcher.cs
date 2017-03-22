@@ -3,12 +3,12 @@ namespace commands.com.tgi.ctoe
 {
 	public interface ICommandEventDispatcher : IDisposable {
 		
-		void AddListener<TEvent>(string eventType,EventHandlerDelegate<TEvent> handler) where TEvent : ICommandEvent;
+		void AddListener<TCommandEvent>(string eventType,EventHandlerDelegate<TCommandEvent> handler) where TCommandEvent : ICommandEvent;
 
-		void RemoveListener<TEvent>(string eventType,EventHandlerDelegate<TEvent> handler) where TEvent : ICommandEvent;
+		void RemoveListener<TCommandEvent>(string eventType,EventHandlerDelegate<TCommandEvent> handler) where TCommandEvent : ICommandEvent;
 
 		void RemoveAllListeners();
 
-		void Dispatch<TEvent>(TEvent @event) where TEvent : ICommandEvent;
+		void Dispatch<TCommandEvent>(TCommandEvent @event) where TCommandEvent : ICommandEvent;
 	}
 }

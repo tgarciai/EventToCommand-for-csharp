@@ -22,7 +22,7 @@ namespace commands.com.tgi.ctoe
             return instance;
         }
 
-		public void AddListener<TEvent>(string eventType, EventHandlerDelegate<TEvent> handler) where TEvent : ICommandEvent
+		public void AddListener<TCommandEvent>(string eventType, EventHandlerDelegate<TCommandEvent> handler) where TCommandEvent : ICommandEvent
 		{
 			if(eventHandlers1.ContainsKey(eventType)){
 				throw new Exception("Cannot map two commands to same event");
@@ -31,7 +31,7 @@ namespace commands.com.tgi.ctoe
 			}
 		}
 
-		public void Dispatch<TEvent>(TEvent anyEvent) where TEvent : ICommandEvent
+		public void Dispatch<TCommandEvent>(TCommandEvent anyEvent) where TCommandEvent : ICommandEvent
 		{
 			if (anyEvent == null) throw new ArgumentNullException("Event to Dispatch is null");
 			if (disposedValue) throw new ObjectDisposedException("Event Dispatcher is disposed! ");
@@ -40,7 +40,7 @@ namespace commands.com.tgi.ctoe
 
 			if (TryToGetHandler(anyEvent.getEventType(), out myHandler))
 			{
-				EventHandlerDelegate<TEvent> myHandlerCallBack = myHandler as EventHandlerDelegate<TEvent>;
+				EventHandlerDelegate<TCommandEvent> myHandlerCallBack = myHandler as EventHandlerDelegate<TCommandEvent>;
 				if (myHandlerCallBack != null)
 				{
 					myHandlerCallBack(anyEvent);
@@ -48,7 +48,7 @@ namespace commands.com.tgi.ctoe
 			}
 		}
 
-		public void RemoveListener<TEvent>(string eventType, EventHandlerDelegate<TEvent> handler) where TEvent : ICommandEvent
+		public void RemoveListener<TCommandEvent>(string eventType, EventHandlerDelegate<TCommandEvent> handler) where TCommandEvent : ICommandEvent
 		{
 			Delegate commandHandler;
 			if (TryToGetHandler(eventType, out commandHandler))
