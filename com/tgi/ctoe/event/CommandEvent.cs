@@ -17,7 +17,12 @@ namespace commands.com.tgi.ctoe
 			CommandEventDispatcher.GetInstance().Dispatch(this);
         }
 
-		public string getEventType()
+        public object getEventData()
+        {
+            return data;
+        }
+
+        public string getEventType()
 		{
 			return type;
 		}

@@ -10,19 +10,20 @@ namespace commands
          
 			EventToCommandMapper commandToEventMapper = new EventToCommandMapper();
 
-			TestCommand command = new TestCommand();
-			commandToEventMapper.MapCommand(command,"aaa");
+			TestCommandA commandA = new TestCommandA();
+            TestCommandB commandB = new TestCommandB();
+			commandToEventMapper.MapCommand(commandA,TestEventA.TYPE);
+            commandToEventMapper.MapCommand(commandB,TestEventB.TYPE);
 
 
-			var evento = new CommandEvent("aaa");
-			evento.dispatch();
+			var evtA = new TestEventA(TestEventA.TYPE,"hello");
+            var evtB = new TestEventA(TestEventB.TYPE,"world");
 
+			evtA.dispatch();
+            evtB.dispatch();
 
-            var evento1 = new CommandEvent("aaaaaa");
-			evento1.dispatch();
-
-
-            commandToEventMapper.RemoveCommand(command,"aaa");
+            commandToEventMapper.RemoveCommand(commandA,TestEventA.TYPE);
+            commandToEventMapper.RemoveCommand(commandB,TestEventB.TYPE);
 
 
         }
