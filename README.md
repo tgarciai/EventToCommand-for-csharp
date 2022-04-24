@@ -1,4 +1,4 @@
-# EventToCommand-for-csharp
+# C# Easy Command pattern 
 This library is used to map custom events to commands,
 when a event is dispatched the asociated command is executed.
 
