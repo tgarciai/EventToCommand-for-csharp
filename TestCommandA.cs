@@ -14,7 +14,6 @@ namespace commands
 			Console.WriteLine("TestCommandA execute");
 			Console.WriteLine("@event type:" +@event.getEventType());
 			Console.WriteLine("@event data:" +@event.getEventData());
-
 		}
 
 	}
