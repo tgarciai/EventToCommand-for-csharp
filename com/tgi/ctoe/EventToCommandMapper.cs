@@ -4,9 +4,7 @@ namespace commands.com.tgi.ctoe
 {
 	public class EventToCommandMapper
 	{
-
 		private Dictionary<string, ICommand> commands;
-
 		
 		public EventToCommandMapper()
 		{
@@ -20,16 +18,12 @@ namespace commands.com.tgi.ctoe
 			{
 				commands.Add(eventType, command);
 				CommandEventDispatcher.GetInstance().AddListener<CommandEvent>(eventType,command.execute);
-
 			}
 			else
 			{
 				throw new Exception("This command is already mapped to:" + eventType);
 			}
-
-
 		}
-
 
 		public void RemoveCommand(ICommand command, string eventType)
 		{
@@ -42,8 +36,6 @@ namespace commands.com.tgi.ctoe
 			{
 				throw new Exception("This command is not mapped to:" + eventType);
 			}
-
-
 		}
 	}
 }
