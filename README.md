@@ -9,7 +9,8 @@ Example of use:
     TestCommandA commandA = new TestCommandA();
     TestCommandB commandB = new TestCommandB();
 
-    commandToEventMapper.MapCommand(commandA,TestEventA.TYPE);commandToEventMapper.MapCommand(commandB,TestEventB.TYPE);
+    commandToEventMapper.MapCommand(commandA,TestEventA.TYPE);
+    commandToEventMapper.MapCommand(commandB,TestEventB.TYPE);
 
 
     var evtA = new TestEventA(TestEventA.TYPE,"hello");
