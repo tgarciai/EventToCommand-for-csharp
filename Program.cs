@@ -7,7 +7,6 @@ namespace commands
     {
         static void Main(string[] args)
         {
-         
 		EventToCommandMapper commandToEventMapper = new EventToCommandMapper();
 
 		TestCommandA commandA = new TestCommandA();
@@ -23,8 +22,6 @@ namespace commands
 
             	commandToEventMapper.RemoveCommand(commandA,TestEventA.TYPE);
             	commandToEventMapper.RemoveCommand(commandB,TestEventB.TYPE);
-
-
         }
     }
 }
